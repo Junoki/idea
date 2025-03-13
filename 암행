@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>암행: 은밀한 수호자 | 투자 제안</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 90%;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #e63946;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #c1121f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section {
+            padding: 4rem 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1d3557;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            max-width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1d3557;
+        }
+        
+        .card-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-item {
+            flex: 1 1 150px;
+            margin: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #e63946;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e0e0e0;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #e63946;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1d3557;
+        }
+        
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            flex: 1 1 250px;
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1d3557;
+        }
+        
+        .team-role {
+            font-size: 0.9rem;
+            color: #e63946;
+            margin-bottom: 1rem;
+        }
+        
+        .team-bio {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #1d3557, #457b9d);
+            color: white;
+            text-align: center;
+            padding: 4rem 1.5rem;
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .highlight-box {
+            background-color: rgba(29, 53, 87, 0.05);
+            border-left: 5px solid #1d3557;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .highlight-title {
+            font-weight: 700;
+            color: #1d3557;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-content {
+            color: #555;
+        }
+        
+        .investment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        .investment-table th,
+        .investment-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .investment-table th {
+            background-color: #f5f5f5;
+            font-weight: 700;
+            color: #1d3557;
+        }
+        
+        .investment-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: #e63946;
+            color: white;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">암행: 은밀한 수호자</h1>
+                <h2 class="hero-subtitle">THE ROYAL INSPECTOR: Secret Guardian</h2>
+                <p class="hero-subtitle">한국형 액션 코미디 첩보 블록버스터</p>
+                <a href="#investment" class="cta-button">투자 정보 보기</a>
+            </div>
+        </section>
+        
+        <!-- Synopsis Section -->
+        <section class="section">
+            <h2 class="section-title">작품 소개</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1605806616949-1e87b487fc1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Synopsis" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">시놉시스</h3>
+                        <p class="card-text">
+                            해병대 특수수색대 출신 '찬영'은 6년째 경찰 시험에 낙방하며 고시원 총무로 일하고 있다. 어느 날, 소방점검을 가장한 무장 세력이 고시원을 습격하고, 찬영은 괴팍한 거주자 '민식'이 놀라운 무술 실력으로 그들을 제압하는 모습을 목격한다. 민식은 조선시대부터 이어져 온 비밀 조직 '암행어사'의 일원이었던 것. 민식과 함께 찬영은 대한민국의 핵개발 비밀을 노리는 국방부 장관의 음모에 맞서게 된다.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1560359614-870f3c8253c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Concept" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">작품 특징</h3>
+                        <p class="card-text">
+                            '암행'은 한국 고유의 역사적 소재인 '암행어사'를 현대적으로 재해석한 작품입니다. 킹스맨, 007과 같은 서구 첩보물의 한국형 버전으로, 한국 특유의 정서와 유머를 담아냅니다. 해병대 출신의 주인공이 국가적 음모에 휘말리며 성장하는 과정을 통해 액션과 코미디, 감동을 모두 담아낸 사계절 흥행 가능한 종합 엔터테인먼트입니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Target Audience" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">타겟 관객</h3>
+                        <p class="card-text">
+                            액션과 코미디를 균형 있게 배합해 남녀노소 모두가 즐길 수 있는 작품입니다. 주 타겟층은 20-40대 남성과 여성으로, 시원한 액션과 한국적 정서의 조화가 돋보입니다. 특히 한국형 히어로물의 새로운 패러다임을 제시하여 국내는 물론 해외 시장에서도 경쟁력 있는 콘텐츠입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="section" style="background-color: #f1faee;">
+            <h2 class="section-title">핵심 지표</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <p class="stat-number">100억원</p>
+                    <p class="stat-label">예상 제작비</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">500만+</p>
+                    <p class="stat-label">목표 관객수</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">60:40</p>
+                    <p class="stat-label">액션:코미디 비율</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">3부작</p>
+                    <p class="stat-label">시리즈 잠재력</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3 class="highlight-title">유사 흥행작 비교</h3>
+                <p class="highlight-content">
+                    2019년 '엑시트'(942만 관객), 2020년 '극한직업'(1626만 관객), '공조' 시리즈(1200만+ 관객) 등 액션과 코미디를 결합한 작품들의 지속적인 흥행을 고려할 때 500만 이상의 관객 동원이 예상됩니다. 특히 독창적인 한국형 첩보물 세계관을 통해 프랜차이즈 확장 가능성이 높은 IP입니다.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Characters Section -->
+        <section class="section">
+            <h2 class="section-title">주요 캐릭터</h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Character 1" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">김찬영 (32세)</h3>
+                        <p class="card-text">
+                            해병대 특수수색대 출신으로 6년째 경찰 시험에 낙방 중인 고시원 총무. 뛰어난 육체적 능력과 불굴의 의지를 갖고 있지만, 학습 능력은 부족하다. 우연히 암행어사의 세계에 발을 들이게 되면서 자신의 진정한 가치를 발견한다.
+                        </p>
+                        <p class="card-text">
+                            <span class="tag">신인 또는 30대 초반 액션배우</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Character 2" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">한민식 (58세)</h3>
+                        <p class="card-text">
+                            서울 담당 암행어사. 고시원에서 문제적 주민으로 위장해 활동 중이다. 까칠한 성격 뒤에 국가에 대한 깊은 충성심과 뛰어난 무술 실력을 숨기고 있다. 찬영의 멘토 역할을 하며 그의 잠재력을 이끌어낸다.
+                        </p>
+                        <p class="card-text">
+                            <span class="tag">최민식</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Character 3" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">박태희 (45세)</h3>
+                        <p class="card-text">
+                            충청도 담당 암행어사. 세련되고 지적인 여성으로, 뛰어난 운전 실력과 전투 능력을 갖추고 있다. 초반에는 찬영을 무시하지만, 점차 그의 순수함과 용기를 인정하게 된다.
+                        </p>
+                        <p class="card-text">
+                            <span class="tag">중견 여배우</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Character 4" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">국방부 장관 (60대)</h3>
+                        <p class="card-text">
+                            겉으로는 국가에 헌신하는 충직한 군인으로 보이지만, 실제로는 핵무기 개발을 통해 개인의 권력을 키우려는 야망을 가진 인물. 대통령을 속이고 암행어사들을 제거하며 자신의 계획을 진행한다.
+                        </p>
+                        <p class="card-text">
+                            <span class="tag">중견 남자배우</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Production Timeline -->
+        <section class="section" style="background-color: #f1faee;">
+            <h2 class="section-title">제작 일정</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">시나리오 개발</h3>
+                        <p>2025년 5월 - 8월</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">프리 프로덕션</h3>
+                        <p>2025년 9월 - 11월</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">주요 촬영</h3>
+                        <p>2025년 12월 - 2026년 2월</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">후반 작업</h3>
+                        <p>2026년 3월 - 5월</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">개봉</h3>
+                        <p>2026년 여름 성수기</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Investment Section -->
+        <section id="investment" class="section">
+            <h2 class="section-title">투자 정보</h2>
+            
+            <div class="highlight-box">
+                <h3 class="highlight-title">투자 제안</h3>
+                <p class="highlight-content">
+                    '암행: 은밀한 수호자'는 총 제작비 100억원 규모의 중견 상업영화로, 효율적인 예산 관리를 통해 최대의 시각적 완성도를 목표로 합니다. 투자자 여러분에게 다음과 같은 투자 기회를 제안합니다.
+                </p>
+            </div>
+            
+            <table class="investment-table">
+                <thead>
+                    <tr>
+                        <th>투자 구분</th>
+                        <th>비율</th>
+                        <th>금액</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>메인 투자사</td>
+                        <td>40%</td>
+                        <td>40억원</td>
+                        <td>배급권 우선 협상</td>
+                    </tr>
+                    <tr>
+                        <td>공동 투자사</td>
+                        <td>30%</td>
+                        <td>30억원</td>
+                        <td>2-3개 투자사 분할 가능</td>
+                    </tr>
+                    <tr>
+                        <td>제작사 자체 투자</td>
+                        <td>20%</td>
+                        <td>20억원</td>
+                        <td>제작비 일부 부담</td>
+                    </tr>
+                    <tr>
+                        <td>영화진흥위원회 지원</td>
+                        <td>10%</td>
+                        <td>10억원</td>
+                        <td>한국형 장르 개발 지원 예정</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="highlight-box">
+                <h3 class="highlight-title">예상 수익률</h3>
+                <p class="highlight-content">
+                    - 관객 500만 달성 시: 투자 수익률 130% 예상<br>
+                    - 관객 700만 달성 시: 투자 수익률 180% 예상<br>
+                    - OTT 플랫폼 판매: 추가 수익 구조 확보<br>
+                    - 해외 배급: 아시아 시장 중심 수출 전략
+                </p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3 class="highlight-title">우리 작품의 차별점</h3>
+                <p class="highlight-content">
+                    - 한국 고유의 '암행어사' 콘셉트를 현대적으로 재해석<br>
+                    - 액션과 코미디의 최적의 조합 (비율 60:40)<br>
+                    - 킹스맨, 007과 같은 서구 첩보물의 한국형 버전<br>
+                    - 시리즈 확장성이 높은 프랜차이즈 IP<br>
+                    - 한국인의 정서와 공감대를 자극하는 스토리텔링
+                </p>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section class="section" style="background-color: #f1faee;">
+            <h2 class="section-title">제작진</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Director" class="team-photo">
+                    <h3 class="team-name">이준호</h3>
+                    <p class="team-role">감독</p>
+                    <p class="team-bio">'극한직업', '극비수사' 등 액션 코미디 연출 경험이 풍부한 중견 감독. 세련된 액션 연출과 대중적 유머 감각이 강점.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Writer" class="team-photo">
+                    <h3 class="team-name">김지영</h3>
+                    <p class="team-role">각본</p>
+                    <p class="team-bio">'공조', '베테랑' 각본 참여. 탄탄한 구성력과 캐릭터 묘사가 뛰어나며, 첩보물 장르에 대한 깊은 이해를 갖고 있음.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Producer" class="team-photo">
+                    <h3 class="team-name">박성민</h3>
+                    <p class="team-role">프로듀서</p>
+                    <p class="team-bio">10년 이상의 영화 제작 경험을 가진 베테랑 프로듀서. 효율적인 예산 관리와 현장 통솔력이 뛰어남.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2 class="contact-title">투자 문의</h2>
+            <p class="contact-info">
+                프로듀서: 박성민<br>
+                연락처: 010-0000-0000<br>
+                이메일: investment@ooroyalinspector.com
+            </p>
